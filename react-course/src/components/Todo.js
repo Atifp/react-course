@@ -16,6 +16,11 @@ function Todo(params) {
     console.log("Card which was chosen to be deleted: " + params.title);
   }
 
+  function closeModalHandler() {
+    // This will be used to remove the Modal and Backdrop
+    setModalIsOpen(false);
+  }
+
   return (
     <div className="card">
       <h2>{params.title}</h2>
@@ -30,7 +35,9 @@ function Todo(params) {
       {
         // Checks to see the state of modalIsOpen, if it is true, then the Modal and Backdrop functions are rendered
       }
-      {modalIsOpen && <Modal />}
+      {modalIsOpen && (
+        <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler} />
+      )}
       {modalIsOpen && <Backdrop />}
     </div>
   );
