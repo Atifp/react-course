@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "./Modal";
 import Backdrop from "./Backdrop";
 
-function Todo(params) {
+function Todo(props) {
   // useState always returns an array with 2 elements, which can be stored in an array constant
   // First element specifies the value of the current state
   // Second value is a function that allows you to change the state
@@ -13,7 +13,7 @@ function Todo(params) {
     // This now makes sure Modal is shown
     setModalIsOpen(true);
     console.log("Button has been clicked!");
-    console.log("Card which was chosen to be deleted: " + params.title);
+    console.log("Card which was chosen to be deleted: " + props.title);
   }
 
   function closeModalHandler() {
@@ -23,7 +23,7 @@ function Todo(params) {
 
   return (
     <div className="card">
-      <h2>{params.title}</h2>
+      <h2>{props.title}</h2>
       <div className="actions">
         {
           // Do not add () to the function name. This causes react to point to the function and not execute it, until it is clicked
